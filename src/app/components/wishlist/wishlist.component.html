@@ -1,0 +1,48 @@
+
+
+    <section class="bg-main-light shadow rounded-4 p-4 my-2 w-75 mx-auto">
+      <h1 class="h3 text-main text-center" style="font-family: Concert One, sans-serif;"> {{"WishList Products.wishList products" | translate}} </h1>
+      <div class="row g-4 justify-content-center">
+        @for (item of products; track item._id) {
+          <div class="col-md-3">
+            <div class="item p-2">
+              @if(!wishListData.includes($any(item._id))){
+                <i (click)="favoriteProduct(item.id)" class="fa-regular fa-heart heart cursor-pointer fa-xl"></i>
+              }
+              @else if (wishListData.includes($any(item._id))) {
+                <i (click)="removeProduct(item.id)" class="fa-solid fa-heart heart cursor-pointer fa-xl" style="color: #ff0000;"></i>
+              }
+  
+                <header role="button" [routerLink]="['/productdetails', item._id]">
+                    <img class="w-100" [src]="item.imageCover" [alt]="item.title">
+                    <h3 class="h6">{{item.title | termtext : 2}}</h3>
+                    <h4 class="h6">{{item.category.name}}</h4>
+                    <div class="d-flex align-items-center justify-content-between small">
+  
+                        <span class="font-sm">{{item.price | currency :'E£'}}</span>
+                       
+                          <div>
+                            @for (num of [1,2,3,4,5].slice(0, item.ratingsAverage); track $index) {
+                              <span> <i class="fas fa-star rating-color"></i> </span>
+                            }
+                            @if (item.ratingsAverage % 1 !== 0) {
+                              <i class="fa-solid fa-star-half-stroke rating-color"></i>
+                            }
+                          <span class="text-muted" >{{item.ratingsAverage}}</span>
+                          </div>
+  
+                    </div>
+                </header>
+                <footer>
+                    <button (click)="addProduct(item._id)"#btnAdd class="btn-main w-100 py-2"> {{"WishList Products.add product" | translate}} </button>
+                </footer>
+            </div>
+        </div>
+        }
+  
+      </div>
+  </section>
+  
+
+  
+  

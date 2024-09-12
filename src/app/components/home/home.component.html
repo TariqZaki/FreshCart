@@ -1,0 +1,102 @@
+<section>
+    <div class="row g-0">
+        <div class="col-md-9">
+            <div>
+
+                <owl-carousel-o [options]="customOptionsMainSlider">
+                    <ng-template carouselSlide> <img src="./../assets/images/img1.avif" height="300" class="w-100"
+                            alt=""></ng-template>
+                    <ng-template carouselSlide> <img src="./../assets/images/img2.avif" height="300" class="w-100"
+                            alt=""></ng-template>
+                    <ng-template carouselSlide> <img src="./../assets/images/img3.avif" height="300" class="w-100"
+                            alt=""></ng-template>
+                    <ng-template carouselSlide> <img src="./../assets/images/img4.avif" height="300" class="w-100"
+                            alt=""></ng-template>
+                    <ng-template carouselSlide> <img src="./../assets/images/img5.avif" height="300" class="w-100"
+                            alt=""></ng-template>
+                    <ng-template carouselSlide> <img src="./../assets/images/img6.avif" height="300" class="w-100"
+                            alt=""></ng-template>
+                    <ng-template carouselSlide> <img src="./../assets/images/img7.avif" height="300" class="w-100"
+                            alt=""></ng-template>
+
+                </owl-carousel-o>
+
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div>
+                <img src="./assets/images/slider-image-2.jpeg" height="150" class="w-100" alt="">
+                <img src="./assets/images/slider-image-3.jpeg" height="150" class="w-100" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="my-5">
+    <h2 class="text-main text-center my-2" style="font-family: Concert One, sans-serif;"
+    > {{"home.popular products" | translate}} </h2>
+
+    <owl-carousel-o [options]="customOptionsCategories">
+        @for (cat of categoriesList; track cat._id)
+        {
+        <ng-template carouselSlide>
+
+            <div>
+                <img [src]="cat.image" height="250px" class="w-100" [alt]="cat.name">
+                <h3 class="h6 text-main"> {{cat.name}} </h3>
+            </div>
+
+        </ng-template>
+        }
+    </owl-carousel-o>
+</section>
+
+
+<section class="my-4">
+    <h2 class="text-main text-center" style="  font-family: Concert One, sans-serif;
+    "> {{"home.popular categories" | translate }} </h2>
+
+<input [(ngModel)]="text" type="search" placeholder="Search by Name..." class="form-control w-50 mx-auto my-2">
+
+    <div class="row g-3 my-2">
+
+        @for (product of productsList.slice(0,12) | search : text ; track product.id) {
+        <div class="col-md-2">
+            <div class="product p-2">
+                <div [routerLink]=" ['/details' , product.id] ">
+                    <img [src]="product.imageCover" class="w-100" [alt]="product.title">
+                    <h3 class="small text-main"> {{product.category.name}} </h3>
+                    <h4 class="h6"> {{product.title | termtext : 2}} </h4>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span> {{product.price | currency : 'GBP' }} </span>
+                        <div>
+                            @for (star of [1,2,3,4,5].slice(0 , product.ratingsAverage) ; track $index) {
+                            <span> <i class="fas fa-star rating-color"></i> </span>
+                            }
+                            @if ( product.ratingsAverage % 1 !== 0 ) {
+                            <i class="fa-solid fa-star-half-stroke rating-color"></i>
+                            }
+                            <!--!search stars by linear gradient -->
+                            <span class="text-muted"> {{product.ratingsAverage}} </span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-main w-100" (click)="addCart( product.id)">Add to Cart</button>
+            </div>
+        </div>
+        }
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+

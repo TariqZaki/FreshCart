@@ -1,0 +1,40 @@
+{
+  "navbar": {
+    "home" : "Home",
+    "products" : "Products" ,
+    "categories" : "Categories" ,
+    "brands" : "Brands" ,
+    "signout" : "SignOut" ,
+    "lang" : "Lang"
+  },
+
+  "home": {
+    "popular categories" : "Popular Categories" ,
+    "popular products" : "Popular Products"
+  },
+
+  "products": {
+    "all products" : "All Products"
+  },
+
+  "categories": {
+    "categories" : "Categories"
+  },
+
+  "brands": {
+    "all brands": "All Brands"
+  },
+
+  "cart": {
+    "shop cart" : "Shop Cart",
+    "total cart price" : "Total Cart Price:",
+    "orders" : "Orders",
+    "clear cart" : "Clear Cart"
+  },
+
+  "WishList Products" : {
+    "wishList products" : "WishList Products",
+    "add product":"Add product"
+  }
+
+}

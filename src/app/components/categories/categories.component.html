@@ -1,0 +1,14 @@
+<section class="shadow rounded-4 p-4 my-2 bg-main-light w-75 mx-auto">
+    <h1 class="h2 text-main text-center" style="  font-family: Concert One, sans-serif;
+    "> {{"categories.categories" | translate}} </h1>
+    <div class="row g-4 m-0">
+      @for (item of categoriesDetails; track item._id) {
+        <div class="col-md-4 col-sm-6 col-lg-3">
+            <div [routerLink]="['/categorydetails' , item._id]" role="button" class="border border-success rounded shadow p-2">
+                <img [src]="item.image" class="w-100" height="250 " [alt]="item.name">
+                <h3 class="text-main text-center h4"> {{item.name}} </h3>
+            </div>
+        </div>
+      }
+    </div>
+</section>

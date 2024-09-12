@@ -1,0 +1,40 @@
+{
+    "navbar": {
+      "home" : "الرئيسيه",
+      "products" : "المنتجات" ,
+      "categories" : "الأقسام" ,
+      "brands" : "العلامات التجاريه" ,
+      "signout" : "تسجيل الخروج" ,
+      "lang" : "غ"
+    },
+
+    "home": {
+      "popular categories" : "الأقسام الشعبية" ,
+      "popular products" : "المنتجات الشعبية"
+    },
+
+    "products": {
+      "all products" : "جميع المنتجات"
+    },
+
+    "categories": {
+      "categories" : "الأقسام"
+    },
+
+    "brands": {
+      "all brands": "جميع العلامات التجاريه"
+    },
+
+    "cart": {
+      "shop cart" : "عربة المشتريات",
+      "total cart price" : "أجمالي سعر المشتريات",
+      "orders" : "الطلبات",
+      "clear cart" : "تفريغ عربة المشتريات"
+    },
+
+    "WishList Products" : {
+      "wishList products" : "المنتجات المفضله",
+      "add product":"أضف المنتج"
+    }
+  
+  }
